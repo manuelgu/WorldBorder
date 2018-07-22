@@ -42,7 +42,7 @@ public class BorderCheckTask implements Runnable
 	// set targetLoc only if not current player location; set returnLocationOnly to true to have new Location returned if they need to be moved to one, instead of directly handling it
 	public static Location checkPlayer(Player player, Location targetLoc, boolean returnLocationOnly, boolean notify)
 	{
-		if (player == null || !player.isOnline()) return null;
+		/*if (player == null || !player.isOnline()) return null;
 
 		Location loc = (targetLoc == null) ? player.getLocation().clone() : targetLoc;
 		if (loc == null) return null;
@@ -56,7 +56,7 @@ public class BorderCheckTask implements Runnable
 			return null;
 
 		// if player is in bypass list (from bypass command), allow them beyond border; also ignore players currently being handled already
-		if (Config.isPlayerBypassing(player.getUniqueId()) || handlingPlayers.contains(player.getName().toLowerCase()))
+		if (player.hasPermission("") || Config.isPlayerBypassing(player.getUniqueId()) || handlingPlayers.contains(player.getName().toLowerCase()))
 			return null;
 
 		// tag this player as being handled so we can't get stuck in a loop due to Bukkit currently sometimes repeatedly providing incorrect location through teleport event
@@ -72,7 +72,7 @@ public class BorderCheckTask implements Runnable
 		 * after players are ejected we can wait a few ticks (long enough for their client to receive new entity location)
 		 * and then set them as passenger of the vehicle again
 		 */
-		if (player.isInsideVehicle())
+		/*if (player.isInsideVehicle())
 		{
 			Entity ride = player.getVehicle();
 			player.leaveVehicle();
@@ -118,7 +118,7 @@ public class BorderCheckTask implements Runnable
 			handlingPlayers.remove(player.getName().toLowerCase());
 
 		if (returnLocationOnly)
-			return newLoc;
+			return newLoc;*/
 
 		return null;
 	}
